@@ -1,0 +1,87 @@
+[
+  {
+    "__typename": "Pool",
+    "id": "0xd0b53d9277642d899df5c87a3966a349a798f224",
+    "token0": {
+      "__typename": "Token",
+      "symbol": "WETH"
+    },
+    "token1": {
+      "__typename": "Token",
+      "symbol": "USDC"
+    },
+    "feeTier": "500",
+    "liquidity": "1563336352956356178",
+    "volumeUSD": "21446407326.12131247402370902359725",
+    "totalValueLockedUSD": "31747843.72996777415830930343515344",
+    "txCount": "9567751"
+  },
+  {
+    "__typename": "Pool",
+    "id": "0x4c36388be6f416a29c8d8eee81c771ce6be14b18",
+    "token0": {
+      "__typename": "Token",
+      "symbol": "WETH"
+    },
+    "token1": {
+      "__typename": "Token",
+      "symbol": "USDbC"
+    },
+    "feeTier": "500",
+    "liquidity": "27388456830728738",
+    "volumeUSD": "4875785982.502381510665405563350778",
+    "totalValueLockedUSD": "2874639.467688557918518728150755079",
+    "txCount": "4458735"
+  },
+  {
+    "__typename": "Pool",
+    "id": "0xb4cb800910b228ed3d0834cf79d697127bbb00e5",
+    "token0": {
+      "__typename": "Token",
+      "symbol": "WETH"
+    },
+    "token1": {
+      "__typename": "Token",
+      "symbol": "USDC"
+    },
+    "feeTier": "100",
+    "liquidity": "11817756277114975",
+    "volumeUSD": "2609128091.494312626742414074986418",
+    "totalValueLockedUSD": "904637.0940131372743085885541026955",
+    "txCount": "7380846"
+  },
+  {
+    "__typename": "Pool",
+    "id": "0x9c087eb773291e50cf6c6a90ef0f4500e349b903",
+    "token0": {
+      "__typename": "Token",
+      "symbol": "VIRTUAL"
+    },
+    "token1": {
+      "__typename": "Token",
+      "symbol": "WETH"
+    },
+    "feeTier": "500",
+    "liquidity": "70052359573383157502678",
+    "volumeUSD": "2526161135.746426109512679121762258",
+    "totalValueLockedUSD": "2279680.480285250628990702771974112",
+    "txCount": "2302478"
+  },
+  {
+    "__typename": "Pool",
+    "id": "0xc9034c3e7f58003e6ae0c8438e7c8f4598d5acaa",
+    "token0": {
+      "__typename": "Token",
+      "symbol": "WETH"
+    },
+    "token1": {
+      "__typename": "Token",
+      "symbol": "DEGEN"
+    },
+    "feeTier": "3000",
+    "liquidity": "393313043863058418749998",
+    "volumeUSD": "2364831686.388233451308088678711668",
+    "totalValueLockedUSD": "5420994.567465044042836559390781143",
+    "txCount": "2177385"
+  }
+]
