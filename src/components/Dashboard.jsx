@@ -130,7 +130,7 @@ const Dashboard = () => {
 
         {/* Overview Section */}
         <div className="flex justify-between items-center mb-4">
-          <h2 className="text-white text-2xl font-semibold">Overview</h2>
+          <h2 className="text-white text-4xl font-semibold">Overview</h2>
           <div className="flex items-center space-x-2">
             <span className="text-slate-400 hover:bg-slate-950 p-2 rounded-sm">
               <Settings />
@@ -162,7 +162,7 @@ const Dashboard = () => {
 
         {/* DeFi Assets Section */}
         <div className="flex justify-between items-center mb-4">
-          <h2 className="text-white text-2xl font-semibold">Investments</h2>
+          <h2 className="text-white text-4xl font-semibold">Investments</h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
