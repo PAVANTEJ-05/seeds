@@ -2,7 +2,7 @@ import { useQuery, gql } from "@apollo/client";
 
 const GET_POOLS = gql`
   {
-    pools(first: 50, orderBy: volumeUSD, orderDirection: desc) {
+    pools(first: 50, orderBy: totalValueLockedUSD, orderDirection: desc) {
       id
       token0 {
         symbol

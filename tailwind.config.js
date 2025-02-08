@@ -7,6 +7,7 @@ export default {
     "./src/components/Dashboard.jsx",
     "./src/components/DefiAssetCard.jsx",
     "./src/components/OverviewCard.jsx",
+    "./src/components/PoolAnalysis.jsx",
   ],
   theme: {
     extend: {},
