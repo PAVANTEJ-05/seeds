@@ -165,20 +165,8 @@ const Dashboard = () => {
           <h2 className="text-white text-4xl font-semibold">Investments</h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {PoolsData.map((PoolData) => (
-            <DefiAssetCard
-              key={PoolData.id}
-              poolID={PoolData.id}
-              poolToken0={PoolData.token0.symbol}
-              poolToken1={PoolData.token1.symbol}
-              poolFeeTier={PoolData.feeTier}
-              poolLiquidity={PoolData.liquidity}
-              poolVolumeUSD={PoolData.volumeUSD}
-              poolTotalValueLockedUSD={PoolData.totalValueLockedUSD}
-              poolTxCount={PoolData.txCount}
-            />
-          ))}
+        <div className="w-full p-2">
+          <DefiAssetCard />
         </div>
       </div>
     </div>
