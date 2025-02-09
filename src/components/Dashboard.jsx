@@ -40,12 +40,24 @@ const GET_POOL_BY_ID = gql`
 
 const Dashboard = () => {
   const navigate = useNavigate();
-
+  const [sortOption, setSortOption] = useState("");
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [searchPoolId, setSearchPoolId] = useState("");
   const [isSearching, setIsSearching] = useState(false);
   const [account, setAccount] = useState("");
   const [balance, setBalance] = useState("0.00");
   const [isConnected, setIsConnected] = useState(false);
+
+  const sortOptions = [
+    { label: "Total Value Locked", value: "totalValueLockedUSD" },
+    { label: "VolumeUSD", value: "volumeUSD" },
+    { label: "Liquidity", value: "liquidity" },
+  ];
+
+  const handleSortSelect = (value) => {
+    setSortOption(value);
+    setIsDropdownOpen(false);
+  };
 
   const {
     loading: poolSearchLoading,
@@ -127,7 +139,6 @@ const Dashboard = () => {
   return (
     <div className="min-h-screen bg-slate-900 p-12 font-mono">
       <div className="max-w-7xl mx-auto">
-        {/* Header */}
         <div className="flex justify-between items-center mb-8">
           <h1 className="text-white text-6xl font-bold">YieldSage</h1>
           <div className="flex space-x-4">
@@ -172,7 +183,7 @@ const Dashboard = () => {
           </div>
         </div>
 
-        {/* Overview Section */}
+        {/*Code for Overview Section */}
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-white text-4xl font-semibold">Overview</h2>
           <div className="flex items-center space-x-2">
@@ -204,10 +215,55 @@ const Dashboard = () => {
           </div>
         </div>
 
-        {/* Pool Search Section */}
+        {/*Code for Pool Search Section */}
+
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-white text-4xl font-semibold">Top Pools</h2>
           <div className="flex items-center space-x-2">
+            <div className="relative">
+              <button
+                onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                className="px-4 py-2 bg-slate-800 text-white rounded-md flex items-center space-x-2 hover:bg-slate-700"
+              >
+                <span>
+                  {sortOption
+                    ? sortOptions.find((opt) => opt.value === sortOption)?.label
+                    : "Sort By"}
+                </span>
+                <svg
+                  className={`w-4 h-4 transition-transform ${
+                    isDropdownOpen ? "rotate-180" : ""
+                  }`}
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+
+              {isDropdownOpen && (
+                <div className="absolute z-10 mt-1 w-48 rounded-md bg-slate-800 shadow-lg">
+                  <ul className="py-1">
+                    {sortOptions.map((option) => (
+                      <li
+                        key={option.value}
+                        className="px-4 py-2 text-white hover:bg-slate-700 cursor-pointer"
+                        onClick={() => handleSortSelect(option.value)}
+                      >
+                        {option.label}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
+
             <input
               type="text"
               value={searchPoolId}
@@ -227,7 +283,7 @@ const Dashboard = () => {
           </div>
         </div>
 
-        {/* Pool Search Results */}
+        {/*Code for Pool Search Results */}
         <div className="w-full p-2">
           {poolSearchLoading && (
             <div className="text-center py-4">
@@ -286,7 +342,7 @@ const Dashboard = () => {
             </div>
           )}
 
-          {!isSearching && <DefiAssetCard />}
+          {!isSearching && <DefiAssetCard sortOption={sortOption} />}
         </div>
       </div>
     </div>

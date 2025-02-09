@@ -79,7 +79,7 @@ const Pools = () => {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
 
-  // Calculate the max feesUSD value to extend the Y-axis
+  // Max fees in USD
   const maxFeesUSD =
     Math.max(...data.poolDayDatas.map((d) => Number(d.feesUSD))) || 0;
 
@@ -89,7 +89,7 @@ const Pools = () => {
     <>
       <div className="bg-slate-800 h-screen flex-col">
         <div className="w-full p-5 font-mono flex flex-col lg:flex-row items-center lg:items-start bg-slate-800 gap-8">
-          {/* Chart Container */}
+          {/*Container for Chart */}
           <div className="w-full lg:w-2/3 h-[400px] bg-slate-900 p-5 rounded-lg shadow-md">
             <ResponsiveContainer width="100%" height="100%">
               <LineChart data={[...data.poolDayDatas].reverse()}>
@@ -102,7 +102,7 @@ const Pools = () => {
                 <YAxis
                   stroke="#fff"
                   dx={-10}
-                  domain={[0, maxFeesUSD * 1.2]} // Extend upper limit by 20%
+                  domain={[0, maxFeesUSD * 1.2]}
                   tickFormatter={(fees) => `$${(fees / 1000).toFixed(0)}k`}
                 />
                 <Tooltip content={<CustomTooltip />} />
@@ -117,7 +117,7 @@ const Pools = () => {
             </ResponsiveContainer>
           </div>
 
-          {/* Pool Details Container */}
+          {/*Container for Pool Details */}
           <div
             key={data.pool.id}
             className="w-full lg:w-1/3 border p-6 rounded-lg shadow-md bg-slate-900 text-white"
