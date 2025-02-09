@@ -25,14 +25,13 @@ const GET_POOLS = gql`
 const DefiAssetCard = ({ sortOption }) => {
   const navigate = useNavigate();
 
-  // Map the sortOption to the actual field names expected by the API
   const getSortField = (option) => {
     const sortMapping = {
       totalValueLocked: "totalValueLockedUSD",
       volumeUSD: "volumeUSD",
       liquidity: "liquidity",
     };
-    return sortMapping[option] || "totalValueLockedUSD"; // default sort
+    return sortMapping[option] || "totalValueLockedUSD";
   };
 
   const { loading, error, data } = useQuery(GET_POOLS, {

@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { ChatPromptTemplate } from "@langchain/core/prompts";
 import { ChatGroq } from "@langchain/groq";
 import { z } from "zod";
 import { Loader2 } from "lucide-react";
 
-// Define output schema using Zod
+//output schema]
 const analysisSchema = z.object({
   recommendation: z.enum(["Invest", "Don't Invest"]),
   confidenceLevel: z.enum(["High", "Medium", "Low"]),
@@ -13,7 +13,7 @@ const analysisSchema = z.object({
   opportunities: z.array(z.string()),
 });
 
-// Initialize ChatGroq
+//ChatGroq
 const model = new ChatGroq({
   apiKey: "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",
   model: "mixtral-8x7b-32768",
@@ -21,7 +21,7 @@ const model = new ChatGroq({
   maxTokens: 1000,
 });
 
-// Create prompt template
+//prompt template
 const promptTemplate = ChatPromptTemplate.fromMessages([
   [
     "system",
@@ -52,11 +52,11 @@ Provide your analysis in the following format:
    - [List major risks]
 5. Opportunities:
    - [List potential opportunities]
-  `,
+    `,
   ],
 ]);
 
-const PoolAnalysisAgent = ({ poolData, poolDayDatas }) => {
+const PoolAnalysisAgent = ({ poolData, poolDayDatas, poolID }) => {
   const [analysis, setAnalysis] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -66,7 +66,7 @@ const PoolAnalysisAgent = ({ poolData, poolDayDatas }) => {
     setError(null);
 
     try {
-      // Format historical data
+      //historical data
       const historicalDataFormatted = poolDayDatas
         .map(
           (day) => `
@@ -78,7 +78,7 @@ const PoolAnalysisAgent = ({ poolData, poolDayDatas }) => {
         )
         .join("\n");
 
-      // Prepare prompt variables
+      //prompt variables
       const promptVars = {
         token0: poolData.token0.symbol,
         token1: poolData.token1.symbol,
@@ -90,13 +90,11 @@ const PoolAnalysisAgent = ({ poolData, poolDayDatas }) => {
         historicalData: historicalDataFormatted,
       };
 
-      // Format the prompt
       const formattedPrompt = await promptTemplate.formatMessages(promptVars);
 
-      // Generate analysis using ChatGroq
+      //analysis
       const response = await model.invoke(formattedPrompt);
 
-      // Parse and format the response
       const formattedAnalysis = {
         timestamp: new Date().toISOString(),
         recommendation: response.content,
@@ -112,7 +110,6 @@ const PoolAnalysisAgent = ({ poolData, poolDayDatas }) => {
   };
 
   const formatAnalysisContent = (content) => {
-    // Split content into sections and format them
     const sections = content.split("\n").map((line, index) => {
       if (
         line.startsWith("1. Recommendation") ||
@@ -138,7 +135,7 @@ const PoolAnalysisAgent = ({ poolData, poolDayDatas }) => {
 
   return (
     <div className="w-full lg:w-2/3 p-5 rounded-lg bg-slate-900 text-white">
-      <div className="">
+      <div>
         <button
           onClick={analyzePool}
           disabled={loading}
@@ -159,13 +156,12 @@ const PoolAnalysisAgent = ({ poolData, poolDayDatas }) => {
           </div>
         )}
         {analysis && (
-          <div className="space-y-4 ">
-            <div className="bg-slate-800  p-4 rounded-lg">
+          <div className="space-y-4">
+            <div className="bg-slate-800 p-4 rounded-lg">
               <p className="text-sm text-gray-400">
                 Analysis generated at:{" "}
                 {new Date(analysis.timestamp).toLocaleString()}
               </p>
-
               <div className="mt-4 font-mono">
                 {formatAnalysisContent(analysis.recommendation)}
               </div>

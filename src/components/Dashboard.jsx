@@ -57,7 +57,6 @@ const Dashboard = () => {
   const handleSortSelect = (value) => {
     setSortOption(value);
     setIsDropdownOpen(false);
-    // Add your sorting logic here
   };
 
   const {
@@ -140,7 +139,6 @@ const Dashboard = () => {
   return (
     <div className="min-h-screen bg-slate-900 p-12 font-mono">
       <div className="max-w-7xl mx-auto">
-        {/* Header */}
         <div className="flex justify-between items-center mb-8">
           <h1 className="text-white text-6xl font-bold">YieldSage</h1>
           <div className="flex space-x-4">
@@ -185,7 +183,7 @@ const Dashboard = () => {
           </div>
         </div>
 
-        {/* Overview Section */}
+        {/*Code for Overview Section */}
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-white text-4xl font-semibold">Overview</h2>
           <div className="flex items-center space-x-2">
@@ -217,29 +215,7 @@ const Dashboard = () => {
           </div>
         </div>
 
-        {/* Pool Search Section */}
-        {/* <div className="flex justify-between items-center mb-4">
-          <h2 className="text-white text-4xl font-semibold">Top Pools</h2>
-          <div className="flex items-center space-x-2">
-            <button>Sort By </button>
-            <input
-              type="text"
-              value={searchPoolId}
-              onChange={(e) => {
-                setSearchPoolId(e.target.value);
-                setIsSearching(false);
-              }}
-              placeholder="Enter Pool ID..."
-              className="flex-1 p-2 border rounded-md bg-slate-800 text-white"
-            />
-            <span
-              className="text-slate-400 hover:bg-slate-950 p-2 rounded-sm cursor-pointer"
-              onClick={handleSearch}
-            >
-              <Search />
-            </span>
-          </div>
-        </div> */}
+        {/*Code for Pool Search Section */}
 
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-white text-4xl font-semibold">Top Pools</h2>
@@ -307,7 +283,7 @@ const Dashboard = () => {
           </div>
         </div>
 
-        {/* Pool Search Results */}
+        {/*Code for Pool Search Results */}
         <div className="w-full p-2">
           {poolSearchLoading && (
             <div className="text-center py-4">
