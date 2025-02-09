@@ -9,6 +9,7 @@ import {
 } from "recharts";
 import { Bitcoin, Wallet } from "lucide-react";
 import { useParams } from "react-router-dom";
+import PoolAnalysisAgent from "./PoolAnalysisAgent";
 
 const GET_POOLS = gql`
   query GetPoolData($poolId: ID!) {
@@ -165,7 +166,7 @@ const Pools = () => {
         <div className=" p-5 flex justify-center font-mono bg-slate-800">
           <div className="w-full lg:w-2/3 p-5 rounded-lg  bg-slate-900 text-white">
             <h2 className="text-3xl mb-2">AI Agent Review :</h2>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio
+            {/* Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio
             voluptatum culpa maxime voluptates. Dolores veniam delectus sit
             obcaecati pariatur eaque modi, quae quisquam, iusto commodi sed,
             ullam exercitationem corrupti dolore! Itaque aliquam id quam
@@ -175,7 +176,11 @@ const Pools = () => {
             porro nemo dolorem rerum! Praesentium minima quidem esse asperiores?
             Voluptatum aliquam in nam dolorum iste similique voluptatibus a,
             debitis pariatur distinctio saepe, maiores maxime inventore quis,
-            impedit facere sint tenetur ipsum explicabo officiis. Harum.
+            impedit facere sint tenetur ipsum explicabo officiis. Harum. */}
+            <PoolAnalysisAgent
+              poolData={data.pool}
+              poolDayDatas={data.poolDayDatas}
+            />
           </div>
         </div>
       </div>
