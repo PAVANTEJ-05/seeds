@@ -170,6 +170,7 @@ const Pools = () => {
             <PoolAnalysisAgent
               poolData={data.pool}
               poolDayDatas={data.poolDayDatas}
+              poolID={poolID}
             />
           </div>
         </div>

@@ -52,11 +52,11 @@ Provide your analysis in the following format:
    - [List major risks]
 5. Opportunities:
    - [List potential opportunities]
-  `,
+    `,
   ],
 ]);
 
-const PoolAnalysisAgent = ({ poolData, poolDayDatas }) => {
+const PoolAnalysisAgent = ({ poolData, poolDayDatas, poolID }) => {
   const [analysis, setAnalysis] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -138,7 +138,7 @@ const PoolAnalysisAgent = ({ poolData, poolDayDatas }) => {
 
   return (
     <div className="w-full lg:w-2/3 p-5 rounded-lg bg-slate-900 text-white">
-      <div className="">
+      <div>
         <button
           onClick={analyzePool}
           disabled={loading}
@@ -159,13 +159,12 @@ const PoolAnalysisAgent = ({ poolData, poolDayDatas }) => {
           </div>
         )}
         {analysis && (
-          <div className="space-y-4 ">
-            <div className="bg-slate-800  p-4 rounded-lg">
+          <div className="space-y-4">
+            <div className="bg-slate-800 p-4 rounded-lg">
               <p className="text-sm text-gray-400">
-                Analysis generated at:{" "}
+                Analysis generated at: {" "}
                 {new Date(analysis.timestamp).toLocaleString()}
               </p>
-
               <div className="mt-4 font-mono">
                 {formatAnalysisContent(analysis.recommendation)}
               </div>
