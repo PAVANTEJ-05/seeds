@@ -1,7 +1,22 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
 
-// https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-})
+  // Ensures assets are built in a way compatible with OneSec's hosting
+  build: {
+    outDir: "dist",
+    // Enables asset optimization
+    assetsDir: "assets",
+    // Improves caching and load times
+    sourcemap: true,
+    rollupOptions: {
+      output: {
+        // Helps with asset organization
+        entryFileNames: "assets/[name]-[hash].js",
+        chunkFileNames: "assets/[name]-[hash].js",
+        assetFileNames: "assets/[name]-[hash].[ext]",
+      },
+  },
+  },
+});
