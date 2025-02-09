@@ -1,8 +1,9 @@
 import { useQuery, gql } from "@apollo/client";
 import { useNavigate } from "react-router-dom";
+
 const GET_POOLS = gql`
-  {
-    pools(first: 10, orderBy: volumeUSD, orderDirection: desc) {
+  query GetPools($orderBy: String!) {
+    pools(first: 9, orderBy: $orderBy, orderDirection: desc) {
       id
       token0 {
         symbol
@@ -21,15 +22,28 @@ const GET_POOLS = gql`
   }
 `;
 
-const DefiAssetCard = () => {
+const DefiAssetCard = ({ sortOption }) => {
   const navigate = useNavigate();
+
+  // Map the sortOption to the actual field names expected by the API
+  const getSortField = (option) => {
+    const sortMapping = {
+      totalValueLocked: "totalValueLockedUSD",
+      volumeUSD: "volumeUSD",
+      liquidity: "liquidity",
+    };
+    return sortMapping[option] || "totalValueLockedUSD"; // default sort
+  };
+
   const { loading, error, data } = useQuery(GET_POOLS, {
+    variables: {
+      orderBy: getSortField(sortOption),
+    },
     context: { clientName: "uniswap" },
   });
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
-  console.log(data);
 
   const handleManageClick = (poolID) => {
     navigate(`/${poolID}`);
@@ -38,7 +52,7 @@ const DefiAssetCard = () => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 bg-slate-800 p-4">
       {data.pools.map((pool) => (
-        <div key={pool.id} className="border p-4 w-full rounded-lg shadow-md ">
+        <div key={pool.id} className="border p-4 w-full rounded-lg shadow-md">
           <h3 className="text-2xl font-bold">
             {pool.token0.symbol} / {pool.token1.symbol}
           </h3>
@@ -62,11 +76,13 @@ const DefiAssetCard = () => {
           </p>
           <p>
             💵 <strong>Profitability Score: </strong>
-            {(Number(pool.volumeUSD) / Number(pool.liquidity)) * 100 +
+            {(
+              (Number(pool.volumeUSD) / Number(pool.liquidity)) * 100 +
               (pool.feeTier / 100000) *
                 (pool.volumeUSD / Number(pool.totalValueLockedUSD)) *
                 100 +
-              (pool.txCount / Number(pool.liquidity)) * 1e9}
+              (pool.txCount / Number(pool.liquidity)) * 1e9
+            ).toFixed(2)}
           </p>
           <div className="flex pt-6">
             <button
