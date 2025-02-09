@@ -3,6 +3,7 @@ import { ChatPromptTemplate } from "@langchain/core/prompts";
 import { ChatGroq } from "@langchain/groq";
 import { z } from "zod";
 import { Loader2 } from "lucide-react";
+// import Pools from "./Pools";
 
 // Define output schema using Zod
 const analysisSchema = z.object({
@@ -56,7 +57,7 @@ Provide your analysis in the following format:
   ],
 ]);
 
-const PoolAnalysisAgent = ({ poolData, poolDayDatas }) => {
+const PoolAnalysisAgent = ({ poolData, poolDayDatas, poolID }) => {
   const [analysis, setAnalysis] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -163,18 +164,20 @@ const PoolAnalysisAgent = ({ poolData, poolDayDatas }) => {
         )}
 
         {analysis && (
-          <div className="space-y-4">
-            <div className="bg-slate-800 p-4 rounded-lg">
-              <p className="text-sm text-gray-400">
-                Analysis generated at:{" "}
-                {new Date(analysis.timestamp).toLocaleString()}
-              </p>
+          <>
+            <div className="space-y-4">
+              <div className="bg-slate-800 p-4 rounded-lg">
+                <p className="text-sm text-gray-400">
+                  Analysis generated at:{" "}
+                  {new Date(analysis.timestamp).toLocaleString()}
+                </p>
 
-              <div className="mt-4 font-mono">
-                {formatAnalysisContent(analysis.recommendation)}
+                <div className="mt-4 font-mono">
+                  {formatAnalysisContent(analysis.recommendation)}
+                </div>
               </div>
             </div>
-          </div>
+          </>
         )}
       </div>
     </div>

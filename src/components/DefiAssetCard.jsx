@@ -2,7 +2,7 @@ import { useQuery, gql } from "@apollo/client";
 import { useNavigate } from "react-router-dom";
 const GET_POOLS = gql`
   {
-    pools(first: 10, orderBy: volumeUSD, orderDirection: desc) {
+    pools(first: 10, orderBy: feeTier, orderDirection: desc) {
       id
       token0 {
         symbol
