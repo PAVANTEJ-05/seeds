@@ -6,7 +6,7 @@ import "./index.css";
 import { BrowserRouter } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 const client = new ApolloClient({
-  uri: "https://gateway.thegraph.com/api/d962ce4034803ffc53981050cb17a0d2/subgraphs/id/43Hwfi3dJSoGpyas9VwNoDAv55yjgGrPpNSmbQZArzMG",
+  uri: "https://gateway.thegraph.com/api/d962ce4034803ffc53981050cb17a0d2/subgraphs/id/5zvR82QoaXYFyDEKLZ9t6v9adgnptxYpKpSbxtgVENFV",
   cache: new InMemoryCache(),
 });
 
