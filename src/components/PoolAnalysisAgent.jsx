@@ -3,7 +3,6 @@ import { ChatPromptTemplate } from "@langchain/core/prompts";
 import { ChatGroq } from "@langchain/groq";
 import { z } from "zod";
 import { Loader2 } from "lucide-react";
-// import Pools from "./Pools";
 
 // Define output schema using Zod
 const analysisSchema = z.object({
@@ -53,7 +52,7 @@ Provide your analysis in the following format:
    - [List major risks]
 5. Opportunities:
    - [List potential opportunities]
-  `,
+    `,
   ],
 ]);
 
@@ -139,9 +138,7 @@ const PoolAnalysisAgent = ({ poolData, poolDayDatas, poolID }) => {
 
   return (
     <div className="w-full lg:w-2/3 p-5 rounded-lg bg-slate-900 text-white">
-      <h2 className="text-3xl mb-4">AI Agent Review</h2>
-
-      <div className="space-y-4">
+      <div>
         <button
           onClick={analyzePool}
           disabled={loading}
@@ -156,28 +153,23 @@ const PoolAnalysisAgent = ({ poolData, poolDayDatas, poolID }) => {
             "Analyze Pool"
           )}
         </button>
-
         {error && (
           <div className="bg-red-500/10 border border-red-500 text-red-500 p-4 rounded-md">
             {error}
           </div>
         )}
-
         {analysis && (
-          <>
-            <div className="space-y-4">
-              <div className="bg-slate-800 p-4 rounded-lg">
-                <p className="text-sm text-gray-400">
-                  Analysis generated at:{" "}
-                  {new Date(analysis.timestamp).toLocaleString()}
-                </p>
-
-                <div className="mt-4 font-mono">
-                  {formatAnalysisContent(analysis.recommendation)}
-                </div>
+          <div className="space-y-4">
+            <div className="bg-slate-800 p-4 rounded-lg">
+              <p className="text-sm text-gray-400">
+                Analysis generated at: {" "}
+                {new Date(analysis.timestamp).toLocaleString()}
+              </p>
+              <div className="mt-4 font-mono">
+                {formatAnalysisContent(analysis.recommendation)}
               </div>
             </div>
-          </>
+          </div>
         )}
       </div>
     </div>
