@@ -16,14 +16,12 @@ import {
   Loader,
   Search,
   RefreshCw,
-  Moon,
-  Sun,
 } from "lucide-react";
 
 const CustomTooltip = ({ active, payload, label }) => {
   if (active && payload && payload.length) {
     return (
-      <div className="bg-white dark:bg-gray-800 p-3 rounded-lg shadow-md border dark:border-gray-700">
+      <div className="bg-white p-3 rounded-lg shadow-md border border-gray-200">
         <p className="font-semibold">Day {label}</p>
         <p className="text-sm">${payload[0].value.toFixed(2)}</p>
       </div>
@@ -48,7 +46,6 @@ function CryptoDashboard() {
   const [sortBy, setSortBy] = useState("marketCap");
   const [sortDirection, setSortDirection] = useState("desc");
   const [searchTerm, setSearchTerm] = useState("");
-  const [darkMode, setDarkMode] = useState(false);
 
   const fetchCryptoPrices = async () => {
     try {
@@ -107,25 +104,22 @@ function CryptoDashboard() {
     });
 
   return (
-    <div className={`min-h-screen transition-colors duration-200  bg-gray-50 p-6`}>
+    <div className="min-h-screen bg-gray-50 p-6">
       <div className="container mx-auto max-w-7xl">
         <header className="text-center mb-10 space-y-4">
-          <div className="flex justify-between items-center">
-            <h1 className={`text-4xl font-bold  text-gray-800 }`}>
-              Crypto Market Dashboard
-            </h1>
-
-          </div>
+          <h1 className="text-4xl font-bold text-gray-800">
+            Crypto Market Dashboard
+          </h1>
           
           <div className="flex flex-col md:flex-row gap-4 items-center justify-center">
             <div className="relative w-full max-w-md">
-            
+              <Search className="absolute left-3 top-3.5 text-gray-400" size={18} />
               <input
                 type="text"
-                placeholder="        Search cryptocurrencies..."
+                placeholder="Search cryptocurrencies..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className={`w-full pl-10 pr-4 py-2 rounded-lg border focus:outline-none focus:ring-2 bg-white border-gray-300 text-gray-800 focus:ring-blue-500`}
+                className="w-full pl-10 pr-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white text-gray-800"
               />
             </div>
             
@@ -133,8 +127,7 @@ function CryptoDashboard() {
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value)}
-                className={`px-4 py-2 rounded-lg border focus:outline-none bg-white border-gray-300 text-gray-800
-                `}
+                className="px-4 py-2 rounded-lg border border-gray-300 bg-white text-gray-800 focus:outline-none"
               >
                 <option value="marketCap">Market Cap</option>
                 <option value="price">Price</option>
@@ -143,11 +136,7 @@ function CryptoDashboard() {
               
               <button
                 onClick={() => setSortDirection(prev => prev === "desc" ? "asc" : "desc")}
-                className={`px-4 py-2 rounded-lg border flex items-center gap-2 ${
-                  darkMode 
-                    ? "bg-gray-800 border-gray-700 text-gray-100"
-                    : "bg-white border-gray-300 text-gray-800"
-                }`}
+                className="px-4 py-2 rounded-lg border border-gray-300 bg-white text-gray-800 flex items-center gap-2"
               >
                 <ArrowUpDown size={16} />
                 {sortDirection === "desc" ? "Desc" : "Asc"}
@@ -170,22 +159,20 @@ function CryptoDashboard() {
               {sortedAndFilteredData.map((crypto) => (
                 <div
                   key={crypto.id}
-                  className={`p-6 rounded-xl shadow-lg transition-transform hover:scale-[1.02] ${
-                    darkMode ? "bg-gray-800" : "bg-white"
-                  }`}
+                  className="p-6 rounded-xl shadow-lg bg-white transition-transform hover:scale-[1.02]"
                 >
                   <div className="flex justify-between items-start mb-4">
                     <div>
-                      <h2 className={`text-xl font-bold ${darkMode ? "text-gray-100" : "text-gray-800"}`}>
+                      <h2 className="text-xl font-bold text-gray-800">
                         {crypto.name} <span className="text-sm text-gray-500">({crypto.symbol})</span>
                       </h2>
-                      <p className={`text-3xl font-semibold ${darkMode ? "text-gray-100" : "text-gray-800"}`}>
+                      <p className="text-3xl font-semibold text-gray-800">
                         {formatNumber(crypto.price)}
                       </p>
                     </div>
                     <div className="flex flex-col items-end">
                       <span className="text-sm text-gray-500">Market Cap</span>
-                      <span className={`font-medium ${darkMode ? "text-gray-300" : "text-gray-700"}`}>
+                      <span className="font-medium text-gray-700">
                         {formatNumber(crypto.marketCap)}
                       </span>
                     </div>
@@ -208,10 +195,10 @@ function CryptoDashboard() {
 
                   <ResponsiveContainer width="100%" height={100}>
                     <LineChart data={crypto.sparkline.map((price, i) => ({ day: i + 1, price }))}>
-                      <CartesianGrid strokeDasharray="3 3" stroke={ "#E5E7EB"} />
+                      <CartesianGrid strokeDasharray="3 3" stroke="#E5E7EB" />
                       <XAxis 
                         dataKey="day" 
-                        tick={{ fill:  "#6B7280" }}
+                        tick={{ fill: "#6B7280" }}
                         tickFormatter={(value) => value % 2 === 0 ? `Day ${value}` : ""}
                       />
                       <YAxis
@@ -233,9 +220,7 @@ function CryptoDashboard() {
               ))}
             </div>
 
-            <div className={`mt-8 text-center flex justify-center items-center gap-4 ${
-              "text-gray-600"
-            }`}>
+            <div className="mt-8 text-center flex justify-center items-center gap-4 text-gray-600">
               <button
                 onClick={fetchCryptoPrices}
                 className="flex items-center gap-2 hover:opacity-80 transition-opacity"
