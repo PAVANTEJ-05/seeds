@@ -10,6 +10,7 @@ import {
 import { Bitcoin, Wallet } from "lucide-react";
 import { useParams } from "react-router-dom";
 import PoolAnalysisAgent from "./PoolAnalysisAgent";
+import PoolDetailsPage from "./botpage";
 
 const GET_POOLS = gql`
   query GetPoolData($poolId: ID!) {
@@ -175,6 +176,9 @@ const Pools = () => {
               poolData={data.pool}
               poolDayDatas={data.poolDayDatas}
               poolID={poolID}
+            />
+            <PoolDetailsPage
+            poolID={poolID}
             />
           </div>
         </div>

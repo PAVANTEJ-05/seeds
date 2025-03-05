@@ -1,7 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import PoolAnalysis from "./components/PoolAnalysis";
 import Dashboard from "./components/Dashboard";
-
 export default function App() {
   return (
     <Routes>
