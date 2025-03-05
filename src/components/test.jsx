@@ -147,7 +147,7 @@ Provide a well-structured response that:
         // Build a custom prompt incorporating wallet details
         const investmentPrompt = `I have a wallet with a balance of ${formattedBalance} ETH.
 Recent transaction history (latest 5 transactions): 
-${txHistoryText}
+${txHistoryText}                  
 Based on this information, ${inputQuery}`;
         const completeResponse = await callChatAPI(investmentPrompt);
         setResponse(completeResponse);
