@@ -3,7 +3,7 @@
 
 Welcome to **YieldSage** – your all-in-one decentralized finance (DeFi) dashboard! 🎉 This project offers an innovative platform for crypto enthusiasts, featuring an AI-powered DeFi Assistant, a Top Liquidity Pools Explorer, and a Crypto Analytics Dashboard—all designed to elevate your crypto journey. 💰🤖
 
-
+Deployed Link: https://seeds-phi.vercel.app/
 ## Table of Contents
 - [About the Project](#about-the-project)
 - [Features](#features)
