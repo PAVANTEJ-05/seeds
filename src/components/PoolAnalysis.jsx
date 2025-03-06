@@ -11,7 +11,7 @@ import { Bitcoin, Wallet } from "lucide-react";
 import { useParams } from "react-router-dom";
 import PoolAnalysisAgent from "./PoolAnalysisAgent";
 import PoolDetailsPage from "./botpage";
-
+import { Link } from "react-router-dom";
 const GET_POOLS = gql`
   query GetPoolData($poolId: ID!) {
     pool(id: $poolId) {
@@ -93,6 +93,12 @@ const Pools = () => {
   return (
     <>
       <div className="bg-slate-800 h-screen flex-col">
+      <Link to="/pools"  >
+          <div className="mx-6 py-5"> 
+            <button className="px-4 py-2 bg-yellow-500 text-white rounded hover:bg-blue-600 transition-colors">
+      Pools Page
+    </button></div>
+    </Link>
         <div className="w-full p-5 font-mono flex flex-col lg:flex-row items-center lg:items-start bg-slate-800 gap-8">
           {/*Container for Chart */}
           <div className="w-full lg:w-2/3 h-[400px] bg-slate-900 p-5 rounded-lg shadow-md">

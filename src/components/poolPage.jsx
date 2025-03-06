@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { Search } from "lucide-react";
 import DefiAssetCard from "./DefiAssetCard";
 // import Navbar from "./poolsNav";
-
+import { Link } from "react-router-dom";
 const GET_POOL_BY_ID = gql`
   query GetPool($poolId: ID!) {
     pool(id: $poolId) {
@@ -61,6 +61,12 @@ const PoolsPage = () => {
       {/* <Navbar /> */}
       <div className="min-h-screen bg-slate-900 p-12 font-mono">
         <div className="max-w-7xl mx-auto">
+        <Link to="/"  >
+          <div className="py-3"> 
+            <button className="px-4 py-2 bg-yellow-500 text-white rounded hover:bg-blue-600 transition-colors">
+     Home Page
+    </button></div>
+    </Link>
           <div className="flex justify-between items-center mb-4">
             <h2 className="text-white text-4xl font-semibold">Top Pools</h2>
             <div className="flex items-center space-x-2">

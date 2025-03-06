@@ -17,7 +17,7 @@ import {
   Search,
   RefreshCw,
 } from "lucide-react";
-
+import { Link } from "react-router-dom";
 const CustomTooltip = ({ active, payload, label }) => {
   if (active && payload && payload.length) {
     return (
@@ -106,6 +106,13 @@ function CryptoDashboard() {
   return (
     <div className="min-h-screen bg-gray-50 p-6">
       <div className="container mx-auto max-w-7xl">
+      <Link to="/"  >
+          <div           > 
+            <button className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors"
+ >
+      Home
+    </button></div>
+    </Link>
         <header className="text-center mb-10 space-y-4">
           <h1 className="text-4xl font-bold text-gray-800">
             Crypto Market Dashboard
