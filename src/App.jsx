@@ -4,6 +4,7 @@ import DecentralizedIntelligenceAgent from "./components/test";
 import Navbar from "./components/navbar";
 import CryptoDashboard from "./components/crypto";
 import PoolsPage from "./components/poolPage";
+import CryptoPredictionAgent from "./components/all";
 export default function App() {
   return (
     <Routes>
@@ -12,7 +13,7 @@ export default function App() {
       <Route path="/sage" element={<DecentralizedIntelligenceAgent />} />
       <Route path="/crypto" element={<CryptoDashboard />} />
       <Route path="/pools" element={<PoolsPage />} />
-
+      <Route path="/test" element={<CryptoPredictionAgent />} />
     </Routes>
   );
 }

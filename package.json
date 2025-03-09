@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@alloralabs/allora-sdk": "^0.1.0",
     "@apollo/client": "^3.12.11",
     "@coinbase/agentkit": "^0.1.2",
     "@coinbase/agentkit-langchain": "^0.1.0",
@@ -20,6 +21,7 @@
     "@langchain/langgraph": "^0.2.45",
     "@mui/material": "^6.4.2",
     "@privy-io/react-auth": "^2.4.2",
+    "allora": "^1.0.0",
     "dotenv": "^16.4.7",
     "graphql": "^16.10.0",
     "lucide-react": "^0.474.0",
