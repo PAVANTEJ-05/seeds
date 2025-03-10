@@ -32,16 +32,24 @@ This project is designed for anyone who loves crypto, innovation, and a smooth u
 Follow these steps to run **YieldSage** locally:
 
 ### Clone the repository
-```git clone https://github.com/yourusername/YieldSage.git```
+```bash
+git clone https://github.com/yourusername/YieldSage.git
+```
 
 ### Navigate into the project directory
-```cd Agentic```
+```bash
+cd Agentic
+```
 
 ### Install dependencies
-```npm install```
+```bash
+npm install
+```
 
 ### Start the application
-```npm run dev```
+```bash
+npm run dev
+```
 
 
  - Open a pull request detailing your changes.
