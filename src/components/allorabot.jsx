@@ -5,15 +5,15 @@ import { Loader2 } from "lucide-react";
 
 const model = new ChatGroq({
   apiKey: "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",
-  model: "mixtral-8x7b-32768",
+  model: "llama3-70b-8192",
   temperature: 0.6,
   maxTokens: 1200,
 });
 
 const cryptoPromptTemplate = ChatPromptTemplate.fromMessages([
-    [
-      "system",
-      `
+  [
+    "system",
+    `
       You're an expert cryptocurrency analyst. Provide your analysis clearly structured in the following numbered sections:
   
       1. Current Price Evaluation:
@@ -41,10 +41,10 @@ const cryptoPromptTemplate = ChatPromptTemplate.fromMessages([
   
       Separate each section clearly with line breaks.
       `,
-    ],
-    [
-      "user",
-      `
+  ],
+  [
+    "user",
+    `
       Crypto Analysis Request:
   
       Cryptocurrency: {cryptoName}
@@ -59,9 +59,8 @@ const cryptoPromptTemplate = ChatPromptTemplate.fromMessages([
   
       Provide your detailed analysis now.
       `,
-    ],
-  ]);
-  
+  ],
+]);
 
 const CryptoPriceAnalysisAgent = ({
   cryptoName,
@@ -74,7 +73,9 @@ const CryptoPriceAnalysisAgent = ({
   const [error, setError] = useState(null);
 
   const formatPredictions = (predictions) =>
-    predictions.map((price, idx) => `Interval ${idx + 1}: $${price}`).join("\n");
+    predictions
+      .map((price, idx) => `Interval ${idx + 1}: $${price}`)
+      .join("\n");
 
   const runAnalysis = async () => {
     setLoading(true);
@@ -100,7 +101,9 @@ const CryptoPriceAnalysisAgent = ({
 
   return (
     <div className="bg-slate-900 text-white p-6  rounded-lg shadow-lg font-mono">
-      <h2 className="text-2xl font-bold mb-4">Crypto AI Analysis for {cryptoName}</h2>
+      <h2 className="text-2xl font-bold mb-4">
+        Crypto AI Analysis for {cryptoName}
+      </h2>
 
       <button
         onClick={runAnalysis}
@@ -122,24 +125,22 @@ const CryptoPriceAnalysisAgent = ({
         </div>
       )}
 
-{analysisResult && (
-  <div className="mt-6 bg-slate-800 rounded-lg overflow-hidden max-w-3xl mx-auto">
-    <div className="p-6 space-y-6">
-      {analysisResult.split(/\n(?=\d+\.)/).map((section, index) => (
-        <div key={index} className="prose prose-invert max-w-none">
-          <h3 className="text-lg font-medium text-gray-200">
-            {section.split(":")[0]}
-          </h3>
-          <div className="mt-2 text-gray-300">
-            {section.split(":").slice(1).join(":").trim()}
+      {analysisResult && (
+        <div className="mt-6 bg-slate-800 rounded-lg overflow-hidden max-w-3xl mx-auto">
+          <div className="p-6 space-y-6">
+            {analysisResult.split(/\n(?=\d+\.)/).map((section, index) => (
+              <div key={index} className="prose prose-invert max-w-none">
+                <h3 className="text-lg font-medium text-gray-200">
+                  {section.split(":")[0]}
+                </h3>
+                <div className="mt-2 text-gray-300">
+                  {section.split(":").slice(1).join(":").trim()}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
-      ))}
-    </div>
-  </div>
-)}
-
-
+      )}
     </div>
   );
 };

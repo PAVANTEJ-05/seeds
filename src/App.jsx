@@ -5,9 +5,7 @@ import Navbar from "./components/navbar";
 import CryptoDashboard from "./components/crypto";
 import PoolsPage from "./components/poolPage";
 import CryptoPredictionAgent from "./components/all";
-// import OnChainPredictions from "./components/quick";
-import AlloraInferenceData from "./components/quick";
-// import CryptoPredictionAgent1 from "./components/quick";
+
 export default function App() {
   return (
     <Routes>
@@ -17,7 +15,6 @@ export default function App() {
       <Route path="/crypto" element={<CryptoDashboard />} />
       <Route path="/pools" element={<PoolsPage />} />
       <Route path="/test" element={<CryptoPredictionAgent />} />
-      <Route path="/aa" element={<AlloraInferenceData />} />
     </Routes>
   );
 }
