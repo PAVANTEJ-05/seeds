@@ -15,7 +15,6 @@ const API_ENDPOINTS = {
       "https://api.upshot.xyz/v2/allora/consumer/price/ethereum-11155111/ETH/5m",
     EIGHT_HOURS:
       "https://api.upshot.xyz/v2/allora/consumer/price/ethereum-11155111/ETH/8h",
-      "https://api.upshot.xyz/v2/allora/consumer/price/ethereum-11155111/ETH/8h",
   },
   SOL: {
     FIVE_MINUTES:
