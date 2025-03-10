@@ -13,13 +13,13 @@ const API_ENDPOINTS = {
     FIVE_MINUTES:
       "https://api.upshot.xyz/v2/allora/consumer/price/ethereum-11155111/ETH/5m",
     EIGHT_HOURS:
-      "https://api.allora.network/allora/consumer/price/ethereum-11155111/ETH/8h",
+      "https://api.upshot.xyz/v2/allora/consumer/price/ethereum-11155111/ETH/8h",
   },
   SOL: {
     FIVE_MINUTES:
       "https://api.upshot.xyz/v2/allora/consumer/price/ethereum-11155111/SOL/5m",
     EIGHT_HOURS:
-      "https://api.upshot.xyz/v2/allora/consumer/ethereum-11155111/SOL/8h",
+      "https://api.upshot.xyz/v2/allora/consumer/price/ethereum-11155111/SOL/8h",
   },
 };
 
@@ -73,7 +73,7 @@ function CryptoPredictionAgent() {
   // Direct fetch from Allora API endpoints
   const fetchAlloraData = async (url, token, timeframe) => {
     try {
-      const apiKey = "UP-bc537e00efaa4fd1a649681b";
+      const apiKey = "UP-1bb380dc6de7408c83eb7008";
       const headers = {
         accept: "application/json",
         "x-api-key": apiKey,

@@ -23,6 +23,7 @@
     "@privy-io/react-auth": "^2.4.2",
     "allora": "^1.0.0",
     "dotenv": "^16.4.7",
+    "ethers": "^5.7.2",
     "graphql": "^16.10.0",
     "lucide-react": "^0.474.0",
     "marked": "^15.0.7",
