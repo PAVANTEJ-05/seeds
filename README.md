@@ -1,7 +1,7 @@
 
 # YieldSage 🚀
 
-Welcome to **YieldSage** – your all-in-one decentralized finance (DeFi) dashboard! 🎉 This project offers an innovative platform for crypto enthusiasts, featuring an AI-powered DeFi Assistant, a Top Liquidity Pools Explorer, and AI Price Predictions —all designed to elevate your crypto journey. 💰🤖
+Welcome to **YieldSage** – your all-in-one decentralized finance (DeFi) dashboard! 🎉 This project offers an innovative platform for crypto enthusiasts, featuring an AI-powered DeFi Assistant, a Top Liquidity Pools Explorer, and Crypto Price Predictions & Analysis —all designed to elevate your crypto journey. 💰🤖
 
 -Deployed  link: [SONIC](https://sonic-inky.vercel.app/)
 ## Table of Contents
@@ -18,15 +18,15 @@ Welcome to **YieldSage** – your all-in-one decentralized finance (DeFi) dashbo
 **YieldSage** is built to revolutionize your experience in decentralized finance with three key pages:
 - **AI DeFi Assistant 🤖**: Get real-time answers and insights about DeFi.
 - **Liquidity Pools Explorer 🌊**: Discover and analyze the top liquidity pools in the market.
-- **AI Price Predictions 📊**: Allora Agent Predicts the Crypto Market Prices 
-
+- **Crypto Price Predictions 📊**: Allora network Predicts the Crypto Market Prices 
+  Crypto Analyzer which gives a complete overview and assistance based predictions by allora network 
 This project is designed for anyone who loves crypto, innovation, and a smooth user experience. 😎✨
 
 ## Features
 - **Wallet Connection 🔗**: Connect your MetaMask wallet seamlessly to track your crypto balance.
 - **DeFi Chatbot 🤖**: A smart assistant to answer your questions about decentralized finance.
 - **Top Pools Explorer 🌊**: Dive into detailed analytics for the best liquidity pools.
-- **AI Price Predictions 📈**: Access in-depth analytics to stay updated on market trends.
+- **Crypto Price Predictions 📈**: Access in-depth analytics to stay updated on market prices pridictions and analysis.
 - **Responsive UI 💻📱**: Enjoy a beautifully responsive design, whether you’re on desktop or mobile.
 
 ## Installation
