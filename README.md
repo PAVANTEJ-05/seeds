@@ -33,7 +33,7 @@ Follow these steps to run **YieldSage** locally:
 
 ### Clone the repository
 ```bash
-git clone https://github.com/yourusername/YieldSage.git
+git clone https://github.com/PAVANTEJ-05/YieldSage.git
 ```
 
 ### Navigate into the project directory
