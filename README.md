@@ -2,8 +2,7 @@
 # YieldSage 🚀
 
 Welcome to **YieldSage** – your all-in-one decentralized finance (DeFi) dashboard! 🎉 This project offers an innovative platform for crypto enthusiasts, featuring an AI-powered DeFi Assistant, a Top Liquidity Pools Explorer, and a Crypto Analytics Dashboard—all designed to elevate your crypto journey. 💰🤖
-
-Deployed Link: https://seeds-phi.vercel.app/
+Deployed  link: https://seeds-pink.vercel.app/
 ## Table of Contents
 - [About the Project](#about-the-project)
 - [Features](#features)
@@ -33,16 +32,24 @@ This project is designed for anyone who loves crypto, innovation, and a smooth u
 Follow these steps to run **YieldSage** locally:
 
 ### Clone the repository
-```git clone https://github.com/yourusername/YieldSage.git```
+```bash
+git clone https://github.com/PAVANTEJ-05/seeds.git
+```
 
 ### Navigate into the project directory
-```cd Agentic```
+```bash
+cd Agentic
+```
 
 ### Install dependencies
-```npm install```
+```bash
+npm install
+```
 
 ### Start the application
-```npm run dev```
+```bash
+npm run dev
+```
 
 
  - Open a pull request detailing your changes.
