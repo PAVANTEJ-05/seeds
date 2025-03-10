@@ -91,13 +91,14 @@ const Navbar = () => {
             icon={TrendingUp}
             iconBgColor="bg-cyan-600/20 text-cyan-500"
           />
-          <div className="bg-slate-800 rounded-lg p-4 flex flex-col items-center justify-center gap-4">
-            <Link
-              to={"/test"}
-              className="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-md flex items-center font-bold text-xl"
+          <div className="bg-slate-800 rounded-lg p-4   flex flex-col items-center justify-center gap-4">
+               CryptoCurrency Dashboard 
+               <Link
+              to={"/crypto"}
+              className="bg-green-600 hover:bg-green-700  text-white px-6 py-2 rounded-md flex items-center font-bold text-xl"
             >
-              AI prices prediction <Bitcoin className="ml-2" />
-            </Link>
+                  <LineChart className="h-8 w-8 text-white" />   <Bitcoin className="ml-2" /> 
+            </Link> 
             {/* <button className="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-md font-bold text-xl flex">
               Withdraw <Wallet className="ml-2" />
             </button> */}
@@ -159,7 +160,7 @@ const Navbar = () => {
 
             {/* Crypto Analytics Suite - Enhanced */}
             <Link
-              to="/crypto"
+              to="/test"
               className="group relative overflow-hidden p-1 rounded-xl transition-all duration-300 hover:scale-105"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-indigo-600 via-purple-500 to-pink-600 animate-pulse-slow rounded-xl"></div>
@@ -168,7 +169,7 @@ const Navbar = () => {
                   <LineChart className="h-8 w-8 text-white" />
                 </div>
                 <h3 className="text-2xl font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-indigo-300 via-purple-300 to-pink-300">
-                  Analytics Suite
+               AI  Price Predictions
                 </h3>
                 <p className="text-slate-300 mb-4">
                   Track market trends with powerful crypto analytics tools and

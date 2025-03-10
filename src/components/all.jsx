@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Bitcoin, Zap, RefreshCw } from "lucide-react";
-
+import CryptoPriceAnalysisAgent from "./allorabot";
+import { Link } from "react-router-dom";
 // Constants for API endpoints
 const API_ENDPOINTS = {
   BTC: {
@@ -13,13 +14,13 @@ const API_ENDPOINTS = {
     FIVE_MINUTES:
       "https://api.upshot.xyz/v2/allora/consumer/price/ethereum-11155111/ETH/5m",
     EIGHT_HOURS:
-      "https://api.allora.network/allora/consumer/price/ethereum-11155111/ETH/8h",
+      "https://api.upshot.xyz/v2/allora/consumer/price/ethereum-11155111/ETH/8h",
   },
   SOL: {
     FIVE_MINUTES:
       "https://api.upshot.xyz/v2/allora/consumer/price/ethereum-11155111/SOL/5m",
     EIGHT_HOURS:
-      "https://api.upshot.xyz/v2/allora/consumer/ethereum-11155111/SOL/8h",
+      "https://api.upshot.xyz/v2/allora/consumer/price/ ethereum-11155111/SOL/8h",
   },
 };
 
@@ -42,7 +43,7 @@ function CryptoPredictionAgent() {
       SOL: [],
     },
   });
-
+  const [Cryptos,setCryptos]= useState("BTC");
   // Fetch current cryptocurrency prices
   const fetchCurrentPrices = async () => {
     try {
@@ -258,7 +259,7 @@ function CryptoPredictionAgent() {
     const startPrice = predictions[0].price;
     const endPrice = predictions[predictions.length - 1].price;
     const change = ((endPrice - startPrice) / startPrice) * 100;
-
+  
     return `${change >= 0 ? "+" : ""}${change.toFixed(2)}%`;
   };
 
@@ -285,8 +286,14 @@ function CryptoPredictionAgent() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 text-white">
-      {/* Header */}
+    <div className="min-h-screen p-4 bg-gradient-to-b from-gray-900 to-gray-800 text-white">
+    <div className="mt-6 px-4">
+            <Link to="/"  >
+                <div> 
+                  <button className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors" >
+            Home
+          </button></div>
+          </Link></div>
       <header className="bg-gray-800/50 backdrop-blur-sm p-4 sticky top-0 z-10 border-b border-gray-700/50">
         <div className="container mx-auto flex justify-between items-center">
           <div className="flex items-center">
@@ -489,6 +496,30 @@ function CryptoPredictionAgent() {
             </div>
           ))}
         </div>
+        <div className="mb-4">
+          <label htmlFor="crypto-select" className="block p-5 mb-2 text-sm font-medium text-gray-300">
+            Select Cryptocurrency:
+          </label>
+          <select
+            id="crypto-select"
+            onChange={(e)=>setCryptos(e.target.value)}
+            className="bg-gray-700 border border-gray-600 p-2 text-white rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-5 p-2.5"
+          >
+            <option value="BTC">Bitcoin (BTC)</option>
+            <option value="ETH">Ethereum (ETH)</option>
+            <option value="SOL">Solana (SOL)</option>
+          </select>
+        </div>
+        <div className="p-5 mx-5 align-center space-y-8">
+
+    <CryptoPriceAnalysisAgent
+      key={Cryptos}
+      cryptoName={Cryptos}
+      currentPrice={currentPrices[Cryptos]?.price || 0}
+      shortTermPredictions={(predictions.FIVE_MINUTES[Cryptos] || []).map(pred => pred.price.toFixed(2))}
+      midTermPredictions={(predictions.EIGHT_HOURS[Cryptos] || []).map(pred => pred.price.toFixed(2))}
+    />
+</div>
 
         {/* Footer */}
         <footer className="text-center text-gray-500 text-xs py-4">

@@ -60,7 +60,7 @@ function DecentralizedIntelligenceAgent() {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            model: "mixtral-8x7b-32768",
+            model: "llama3-70b-8192",
             messages: messages,
             temperature: 0.7, // Reduced for more consistent responses
             max_tokens: 2048, // Increased for more complete answers

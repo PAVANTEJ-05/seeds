@@ -14,7 +14,6 @@ import {
   Clock,
   ArrowUpDown,
   Loader,
-  Search,
   RefreshCw,
 } from "lucide-react";
 import { Link } from "react-router-dom";
