@@ -108,7 +108,7 @@ function DecentralizedIntelligenceAgent() {
           try {
             const { account, formattedBalance } = await fetchWalletData();
             if (account) {
-              walletContext = `The user's connected wallet address is ${account} with a balance of ${formattedBalance} $. `;
+              walletContext = `The user's connected wallet address is ${account} with a balance of ${formattedBalance} sonic. `;
             }
           } catch (walletError) {
             console.log(
@@ -216,7 +216,7 @@ Guidelines:
                 <p className="text-sm font-medium text-gray-600">Try asking:</p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                   {[
-                    "What is Ethereum?",
+                    "What is Sonic Labs?",
                     "How do smart contracts work?",
                     "What's my wallet balance?",
                     "Explain DeFi in a nutshell!",

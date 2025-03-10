@@ -16,7 +16,7 @@ const analysisSchema = z.object({
 //ChatGroq
 const model = new ChatGroq({
   apiKey: "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",
-  model: "llama3-70b-8192",
+  model: "mixtral-8x7b-32768",
   temperature: 0.7,
   maxTokens: 1000,
 });

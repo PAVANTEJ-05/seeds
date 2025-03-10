@@ -13,7 +13,7 @@ const ChatAssistant = ({ poolData, poolDayDatas }) => {
   // Initialize the model with your credentials and parameters.
   const model = new ChatGroq({
     apiKey: "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",
-    model: "llama3-70b-8192",
+    model: "mixtral-8x7b-32768",
     temperature: 0.5,
     maxTokens: 500,
   });
@@ -56,7 +56,10 @@ Respond in markdown format with clear, data-supported answers.`,
 
     try {
       // Add the user message to chat history
-      setMessages((prev) => [...prev, { role: "user", content: inputMessage }]);
+      setMessages((prev) => [
+        ...prev,
+        { role: "user", content: inputMessage },
+      ]);
 
       // Format the prompt by inserting the current question
       const formattedPrompt = await promptTemplate.formatMessages({
@@ -65,7 +68,7 @@ Respond in markdown format with clear, data-supported answers.`,
 
       // Get AI response
       const response = await model.invoke(formattedPrompt);
-
+      
       // Append the assistant response to chat history
       setMessages((prev) => [
         ...prev,
